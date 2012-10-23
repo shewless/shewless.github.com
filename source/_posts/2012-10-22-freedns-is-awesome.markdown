@@ -3,7 +3,7 @@ layout: post
 title: "FreeDNS is awesome"
 date: 2012-10-22 21:08
 comments: true
-categories: [DNS, WEBSITE, HOSTING, EMAIL, BLOG]
+categories: [WEB]
 ---
 
 Purchasing your own domain name is inexpensive and is a great way to setup a personal email address or website.
@@ -21,6 +21,12 @@ In order for this to work you also need to configure [Google Apps](http://suppor
 It also points [www.unleashed-web.org](unleashed-web.org) to where this website is hosted (github):
 
 	www.unleashed-web.org (G)	CNAME	shewless.github.com
+
+Lastly if you want your TLD (top level domain) to work you must also add an "A record" that will point to a specific github IP address:
+
+	unleashed-web.org (G)	A	204.232.175.78
+
+See [This Github help article](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) for more information.
 
 This website is powered by [octopress](www.octopress.org) which can be freely deployed on [github](www.github.com).  Please keep in mind that octopress defines itself as "A blogging framework for hackers" so it all depends on how much time you want to invest.  If you're looking for something simpler there are many other way to create and host websites and blogs (most of which will cost a bit of money). 
 
