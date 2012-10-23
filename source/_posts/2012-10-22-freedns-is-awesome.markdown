@@ -3,7 +3,7 @@ layout: post
 title: "FreeDNS is awesome"
 date: 2012-10-22 21:08
 comments: true
-categories: [DNS WEBSITE HOSTING EMAIL BLOG]
+categories: [DNS, WEBSITE, HOSTING, EMAIL, BLOG]
 ---
 
 Purchasing your own domain name is inexpensive and is a great way to setup a personal email address or website.
