@@ -3,7 +3,6 @@ layout: post
 title: "Enabling comments with Disqus"
 date: 2012-10-25 09:25
 comments: true
-published: true
 categories: WEB
 ---
 
@@ -15,11 +14,8 @@ This is because you need to configure a **[Disqus](http://disqus.com/)** account
 2. Retrieve your disqus *"shortname"*
 3. Add the shortname to _config.yml:
 
-```yaml _config.yml
-# Disqus Comments
-disqus_short_name: unleashedweborg
-disqus_show_comment_count: true
-
-```
+		# Disqus Comments
+		disqus_short_name: unleashedweborg
+		disqus_show_comment_count: true
 
 4. You can see I also set discus_show_comment_count to true (which is optional)
