@@ -8,12 +8,12 @@ categories: WEB
 
 [Free DNS](http://freedns.afraid.org/ "Free DNS") offers free dynamic and static DNS hosting.  You can visit their website or read more about some uses of their service [here](/blog/2012/10/22/freedns-is-awesome).
 
-If you are hosting your website from a server that has a dynamic IP address you might wonder how you can map your domain name (specifically TLD) directly to your server.  Sure you can use **CNAME** records to point your subdomains to another DNS service like [no-ip](http://www.no-ip.com/) but where is fun in that?  Also that doesn't help your TLD (top-level domain) which needs to be set via an **A Record**.
+If you are hosting your website from a server that has a dynamic IP address you might wonder how you can map your domain name (specifically TLD) directly to your server.  Sure you can use `CNAME` records to point your subdomains to another DNS service like [no-ip](http://www.no-ip.com/) but where is fun in that?  Also that doesn't help your TLD (top-level domain) which needs to be set via an `A Record`.
 
 [Github](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) says:
 > Be warned: you should not use a CNAME record with a TLD, it may cause issues with other services on the domain, like email.
 
-FreeDNS provides an API to update your **A Record** as your dynamic IP address changes.  They provide several scripts that work in conjunction with a unique "Authentication Token" that allow this to be possible.  These scripts are written for windows, linux, and even certain routers!  I think these [scripts](http://freedns.afraid.org/scripts/freedns.clients.php) are only available once you have a login (it's free)!
+FreeDNS provides an API to update your `A Record` as your dynamic IP address changes.  They provide several scripts that work in conjunction with a unique "Authentication Token" that allow this to be possible.  These scripts are written for windows, linux, and even certain routers!  I think these [scripts](http://freedns.afraid.org/scripts/freedns.clients.php) are only available once you have a login (it's free)!
 
 I wanted to better understand the process and create something light-weight so I wrote my own tcl script to use:
 
@@ -126,6 +126,6 @@ else \
 }
 ```
 
-Now you simply need to call "./updateIp.tcl" in a cron job and your domain will stay updated with your ever changing IP address!
+Now you simply need to call `./updateIp.tcl` in a cron job and your domain will stay updated with your ever changing IP address!
 
 Eventually I will add this to github in case anyone would like to use or improve upon it.

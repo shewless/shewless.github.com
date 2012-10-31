@@ -10,7 +10,7 @@ It appears the default *comments* option for [Octopress](http://www.octopress.or
 
 This is because you need to create and configure a **[Disqus](http://disqus.com/)** account first:
 
-- Register your webiste here: [http://disqus.com/admin/register/](http://disqus.com/admin/register/)
+- Register your webiste here: <http://disqus.com/admin/register/>
 - Retrieve your disqus *"shortname"*
 - Add the shortname to _config.yml:
 
