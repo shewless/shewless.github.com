@@ -2,3 +2,4 @@ macbook/osx review
 rvm compared with rbenv
 ruby script for updateIp
 committing a fix for octoblog
+osx dns resolv issue
