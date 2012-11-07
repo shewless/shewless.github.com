@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SHELL | unleashed-web.org]]></title>
+  <link href="http://www.unleashed-web.org/blog/categories/shell/atom.xml" rel="self"/>
+  <link href="http://www.unleashed-web.org/"/>
+  <updated>2012-11-07T11:27:05-05:00</updated>
+  <id>http://www.unleashed-web.org/</id>
+  <author>
+    <name><![CDATA[shewless]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Shell Quick Substitution]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/26/shell-quick-substitution/"/>
+    <updated>2012-10-26T09:17:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/26/shell-quick-substitution</id>
+    <content type="html"><![CDATA[<p><code>bash quick substitution
+^string1^string2
+</code></p>
+
+<p>If you find yourself needing to enter a very similar command multiple times this little command line trick that might save you some time.  This is really only helpful if your command line is somewhat long and repetitive. </p>
+
+<p>This is admittedly quite a contrived example but I think it gets the idea across:</p>
+
+<p><code>bash example
+scotmac:~ shewless$ ls file*.txt
+file1.txt	file2.txt
+scotmac:~ shewless$ for i in `cat file1.txt`; do echo $i; done
+foo
+bar
+apple
+scotmac:~ shewless$ ^file1^file2
+for i in `cat file2.txt`; do echo $i; done
+baz
+qux
+banana
+scotmac:~ shewless$ 
+</code></p>
+
+<p>Step by step:</p>
+
+<ul>
+  <li>I have two files that I want to apply a similar action to:</li>
+</ul>
+
+<p><code>bash list files
+scotmac:~ shewless$ ls file*.txt
+file1.txt	file2.txt
+</code></p>
+
+<ul>
+  <li>I will run a command on file1.txt to list all of the lines in the file:</li>
+</ul>
+
+<p><code>bash command on file1.txt
+scotmac:~ shewless$ for i in `cat file1.txt`; do echo $i; done
+foo
+bar
+apple
+</code></p>
+
+<ul>
+  <li>I want to run the same command on file2.txt.  Note the <strong>only</strong> input I have provided is the first line.</li>
+</ul>
+
+<p><code>bash command on file2.txt
+scotmac:~ shewless$ ^file1^file2
+for i in `cat file2.txt`; do echo $i; done
+baz
+qux
+banana
+</code></p>
+
+<p>Enjoy!</p>
+]]></content>
+  </entry>
+  
+</feed>

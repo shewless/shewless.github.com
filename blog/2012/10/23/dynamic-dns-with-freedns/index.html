@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>unleashed-web.org</title>
+  <title>Dynamic DNS with FreeDNS - unleashed-web.org</title>
   <meta name="author" content="shewless">
 
   
-  <meta name="description" content="You can enable spell check in vim, gvim, or macvim by entering command mode1 and typing :set spell. To make this permanent for every time you open a &hellip;">
+  <meta name="description" content="Free DNS offers free dynamic and static DNS hosting. You can visit their website or read more about some uses of their service here. If you are &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.unleashed-web.org/">
+  <link rel="canonical" href="http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,308 +75,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/10/31/enable-vim-spell-check-for-specific-file-types/">Enable Vim Spell Check for Specific File Types</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-31T11:02:00-04:00" pubdate data-updated="true">31-OCT-2012</time>
-        
-         | <a href="/blog/2012/10/31/enable-vim-spell-check-for-specific-file-types/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>You can enable spell check in vim, gvim, or macvim by entering <em>command mode<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></em> and typing <code>:set spell</code>.</p>
-
-<p>To make this permanent for every time you open a file in vim you can add this line to your <code>~/.vimrc</code><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup> file:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="vim"><span class="line"><span class="k">set</span> <span class="k">spell</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>If you use vim for programming you might not want it to spell check every file.  If, for example, you use vim to edit your markdown files for your <a href="http://octopress.org">Octopress Blog</a> AND you also use vim to edit your ruby project you will want to use the autocmd instead:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="vim"><span class="line">autocmd <span class="nb">FileType</span> Markdown <span class="k">setlocal</span> <span class="k">spell</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>This will only enable spell check if you open a file with type “Markdown”</p>
-
-<hr />
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>You can enter <em>command mode</em> by pressing the <code>ESC</code> key.<a href="#fnref:1" rel="reference">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p><code>~</code> represents the current users home directory.  Similar to the <code>$HOME</code> environment variable.<a href="#fnref:2" rel="reference">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/30/frequent-connection-reset/">Frequent Connection Reset</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-30T23:20:00-04:00" pubdate data-updated="true">30-OCT-2012</time>
-        
-         | <a href="/blog/2012/10/30/frequent-connection-reset/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>UPDATE:</strong> As of <em>7-Nov-2012</em> (and likely before) this connection reset problem does not appear to be occurring anymore.  Thank you <a href="http://github.com">Github</a>!</p>
-
-<hr />
-
-<p>Uhoh.. every once and a while I get this error when trying to access my site: <a href="http://www.unleashed-web.org">http://www.unleashed-web.org</a>.  When I hit “refresh” the problem vanishes (for a short time).</p>
-
-<p><img class="center" src="/images/2012-10-30-frequent-connection-reset/problemLoading.png" /></p>
-
-<p>My site is hosted by <a href="http://github.com">Github</a>.  I began searching other websites that are hosted by github and I noticed that I would occasionally get the same <em>“The connection was reset”</em> error.</p>
-
-<p>I contacted the Github support team and told them about the problem.  They were very fast to investigate and respond:</p>
-
-<blockquote>
-  <p>This is a known issue with some of our DDoS hardware that’s in place.  We’re currently working with our hosting provider to resolve this issue.  Sorry for the inconvenience.</p>
-</blockquote>
-
-<p>After some googling I realized that the Github servers have recently suffered some <a href="https://twitter.com/github/status/259029493669310464">DDOS</a> attacks and it seems as though they don’t have a fully working solution in place to deal with that yet.</p>
-
-<p>Thank you to the github team for diligently working through the issues!  In the mean time we’ll need to <em>refresh</em> our browsers every once and awhile to load github hosted websites.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/26/shell-quick-substitution/">Shell Quick Substitution</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-26T09:17:00-04:00" pubdate data-updated="true">26-OCT-2012</time>
-        
-         | <a href="/blog/2012/10/26/shell-quick-substitution/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>quick substitution</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">^string1^string2
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>If you find yourself needing to enter a very similar command multiple times this little command line trick that might save you some time.  This is really only helpful if your command line is somewhat long and repetitive. </p>
-
-<p>This is admittedly quite a contrived example but I think it gets the idea across:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>example</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">scotmac:~ shewless<span class="nv">$ </span>ls file*.txt
-</span><span class="line">file1.txt	file2.txt
-</span><span class="line">scotmac:~ shewless<span class="nv">$ </span><span class="k">for </span>i in <span class="sb">`</span>cat file1.txt<span class="sb">`</span>; <span class="k">do </span><span class="nb">echo</span> <span class="nv">$i</span>; <span class="k">done</span>
-</span><span class="line">foo
-</span><span class="line">bar
-</span><span class="line">apple
-</span><span class="line">scotmac:~ shewless<span class="nv">$ </span>^file1^file2
-</span><span class="line"><span class="k">for </span>i in <span class="sb">`</span>cat file2.txt<span class="sb">`</span>; <span class="k">do </span><span class="nb">echo</span> <span class="nv">$i</span>; <span class="k">done</span>
-</span><span class="line">baz
-</span><span class="line">qux
-</span><span class="line">banana
-</span><span class="line">scotmac:~ shewless<span class="nv">$ </span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Step by step:</p>
-
-<ul>
-  <li>I have two files that I want to apply a similar action to:</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>list files</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">scotmac:~ shewless<span class="nv">$ </span>ls file*.txt
-</span><span class="line">file1.txt	file2.txt
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<ul>
-  <li>I will run a command on file1.txt to list all of the lines in the file:</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>command on file1.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">scotmac:~ shewless<span class="nv">$ </span><span class="k">for </span>i in <span class="sb">`</span>cat file1.txt<span class="sb">`</span>; <span class="k">do </span><span class="nb">echo</span> <span class="nv">$i</span>; <span class="k">done</span>
-</span><span class="line">foo
-</span><span class="line">bar
-</span><span class="line">apple
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<ul>
-  <li>I want to run the same command on file2.txt.  Note the <strong>only</strong> input I have provided is the first line.</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>command on file2.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-</pre></td><td class="code"><pre><code class="bash"><span class="line">scotmac:~ shewless<span class="nv">$ </span>^file1^file2
-</span><span class="line"><span class="k">for </span>i in <span class="sb">`</span>cat file2.txt<span class="sb">`</span>; <span class="k">do </span><span class="nb">echo</span> <span class="nv">$i</span>; <span class="k">done</span>
-</span><span class="line">baz
-</span><span class="line">qux
-</span><span class="line">banana
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Enjoy!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/25/enabling-comments-with-disqus/">Enabling Comments With Disqus</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-25T09:25:00-04:00" pubdate data-updated="true">25-OCT-2012</time>
-        
-         | <a href="/blog/2012/10/25/enabling-comments-with-disqus/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It appears the default <em>comments</em> option for <a href="http://www.octopress.org">Octopress</a> is <em>true</em> but you will notice that your Octopress blog does not actually have a comment section.</p>
-
-<p>This is because you need to create and configure a <strong><a href="http://disqus.com/">Disqus</a></strong> account first:</p>
-
-<ul>
-  <li>Register your webiste here: <a href="http://disqus.com/admin/register/">http://disqus.com/admin/register/</a></li>
-  <li>Retrieve your disqus <em>“shortname”</em></li>
-  <li>Add the shortname to _config.yml:</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>enable disqus</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="c1"># Disqus Comments</span>
-</span><span class="line"><span class="n">disqus_short_name</span><span class="p">:</span> <span class="n">unleashedweborg</span>
-</span><span class="line"><span class="n">disqus_show_comment_count</span><span class="p">:</span> <span class="kp">true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<ul>
-  <li>You can see I also set discus_show_comment_count to true (which is optional)</li>
-</ul>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/23/dynamic-dns-with-freedns/">Dynamic DNS With FreeDNS</a></h1>
+      <h1 class="entry-title">Dynamic DNS With FreeDNS</h1>
     
     
       <p class="meta">
@@ -394,14 +98,14 @@
 
 <time datetime="2012-10-23T21:18:00-04:00" pubdate data-updated="true">23-OCT-2012</time>
         
-         | <a href="/blog/2012/10/23/dynamic-dns-with-freedns/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://freedns.afraid.org/" title="Free DNS">Free DNS</a> offers free dynamic and static DNS hosting.  You can visit their website or read more about some uses of their service <a href="/blog/2012/10/22/freedns-is-awesome">here</a>.</p>
+<div class="entry-content"><p><a href="http://freedns.afraid.org/" title="Free DNS">Free DNS</a> offers free dynamic and static DNS hosting.  You can visit their website or read more about some uses of their service <a href="/blog/2012/10/22/freedns-is-awesome">here</a>.</p>
 
 <p>If you are hosting your website from a server that has a dynamic IP address you might wonder how you can map your domain name (specifically TLD) directly to your server.  Sure you can use <code>CNAME</code> records to point your subdomains to another DNS service like <a href="http://www.no-ip.com/">no-ip</a> but where is fun in that?  Also that doesn’t help your TLD (top-level domain) which needs to be set via an <code>A Record</code>.</p>
 
@@ -633,22 +337,16 @@
 
 <p>Eventually I will add this to github in case anyone would like to use or improve upon it.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/22/freedns-is-awesome/">FreeDNS Is Awesome</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">shewless</span></span>
+
+      
 
 
 
@@ -660,56 +358,46 @@
   
 
 
-<time datetime="2012-10-22T21:08:00-04:00" pubdate data-updated="true">22-OCT-2012</time>
-        
-         | <a href="/blog/2012/10/22/freedns-is-awesome/#disqus_thread">Comments</a>
-        
-      </p>
+<time datetime="2012-10-23T21:18:00-04:00" pubdate data-updated="true">23-OCT-2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/web/'>WEB</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Purchasing your own domain name is inexpensive and is a great way to setup a personal email address or website.</p>
-
-<p>You can use <a href="http://freedns.afraid.org/" title="Free DNS">Free DNS</a> to map your DNS to an appropriate mail server or web server.</p>
-
-<p>Here is an example that allows me to use “gmail” with a personal email address <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#104;&#101;&#119;&#108;&#101;&#115;&#115;&#064;&#117;&#110;&#108;&#101;&#097;&#115;&#104;&#101;&#100;&#045;&#119;&#101;&#098;&#046;&#111;&#114;&#103;">&#115;&#104;&#101;&#119;&#108;&#101;&#115;&#115;&#064;&#117;&#110;&#108;&#101;&#097;&#115;&#104;&#101;&#100;&#045;&#119;&#101;&#098;&#046;&#111;&#114;&#103;</a> using <code>MX records</code>.  </p>
-
-<pre><code>unleashed-web.org (G)	MX	10:alt1.aspmx.l.google.com
-unleashed-web.org (G)	MX	10:alt2.aspmx.l.google.com
-unleashed-web.org (G)	MX	10:aspmx.l.google.com
-</code></pre>
-
-<p>In order for this to work you also need to configure <a href="http://support.google.com/a/bin/answer.py?hl=en&amp;answer=57919">Google Apps</a> to enable your email service.  This service is free for personal use.</p>
-
-<p>It also points <a href="http://www.unleashed-web.org">http://www.unleashed-web.org</a> to where this website is hosted (github):</p>
-
-<pre><code>www.unleashed-web.org (G)	CNAME	shewless.github.com
-</code></pre>
-
-<p>Lastly if you want your TLD (top level domain) to work you must also add an “A record” that will point to a specific github IP address:</p>
-
-<pre><code>unleashed-web.org (G)	A	204.232.175.78
-</code></pre>
-
-<p>See <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">This Github help article</a> for more information.</p>
-
-<p>This website is powered by <a href="http://www.octopress.org">Octopress</a> which can be freely deployed on <a href="http://www.github.com">Github</a>.  Please keep in mind that octopress defines itself as “A blogging framework for hackers” so it all depends on how much time you want to invest.  If you’re looking for something simpler there are many other way to create and host websites and blogs (most of which will cost a bit of money). </p>
-
-<p>The entire cost for your own email address and website is only the cost of the domain name itself (usually approx $15/year)!</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/" data-via="" data-counturl="http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/22/freedns-is-awesome/" title="Previous Post: FreeDNS is awesome">&laquo; FreeDNS is awesome</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/25/enabling-comments-with-disqus/" title="Next Post: Enabling comments with Disqus">Enabling comments with Disqus &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -742,7 +430,7 @@ unleashed-web.org (G)	MX	10:aspmx.l.google.com
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/shewless">@shewless</a> on GitHub
@@ -776,6 +464,7 @@ unleashed-web.org (G)	MX	10:aspmx.l.google.com
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -790,7 +479,10 @@ unleashed-web.org (G)	MX	10:aspmx.l.google.com
       var disqus_shortname = 'unleashedweborg';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/';
+        var disqus_url = 'http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/2012/10/22/freedns-is-awesome/</loc>
+        <lastmod>2012-10-31T22:33:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/</loc>
+        <lastmod>2012-10-31T22:33:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/2012/10/25/enabling-comments-with-disqus/</loc>
+        <lastmod>2012-10-31T22:33:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/2012/10/26/shell-quick-substitution/</loc>
+        <lastmod>2012-10-31T22:33:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/2012/10/30/frequent-connection-reset/</loc>
+        <lastmod>2012-11-07T11:10:20-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.unleashed-web.org/blog/2012/10/31/enable-vim-spell-check-for-specific-file-types/
+        </loc>
+        <lastmod>2012-10-31T22:33:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/blog/archives/</loc>
+        <lastmod>2012-11-07T11:10:20-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.unleashed-web.org/</loc>
+        <lastmod>2012-11-07T11:10:20-05:00</lastmod>
+    </url>
+</urlset>

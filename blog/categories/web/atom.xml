@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: WEB | unleashed-web.org]]></title>
+  <link href="http://www.unleashed-web.org/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://www.unleashed-web.org/"/>
+  <updated>2012-11-07T11:27:05-05:00</updated>
+  <id>http://www.unleashed-web.org/</id>
+  <author>
+    <name><![CDATA[shewless]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Frequent Connection Reset]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/30/frequent-connection-reset/"/>
+    <updated>2012-10-30T23:20:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/30/frequent-connection-reset</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE:</strong> As of <em>7-Nov-2012</em> (and likely before) this connection reset problem does not appear to be occurring anymore.  Thank you <a href="http://github.com">Github</a>!</p>
+
+<hr />
+
+<p>Uhoh.. every once and a while I get this error when trying to access my site: <a href="http://www.unleashed-web.org">http://www.unleashed-web.org</a>.  When I hit “refresh” the problem vanishes (for a short time).</p>
+
+<p><img class="center" src="/images/2012-10-30-frequent-connection-reset/problemLoading.png"></p>
+
+<p>My site is hosted by <a href="http://github.com">Github</a>.  I began searching other websites that are hosted by github and I noticed that I would occasionally get the same <em>“The connection was reset”</em> error.</p>
+
+<p>I contacted the Github support team and told them about the problem.  They were very fast to investigate and respond:</p>
+
+<blockquote>
+  <p>This is a known issue with some of our DDoS hardware that’s in place.  We’re currently working with our hosting provider to resolve this issue.  Sorry for the inconvenience.</p>
+</blockquote>
+
+<p>After some googling I realized that the Github servers have recently suffered some <a href="https://twitter.com/github/status/259029493669310464">DDOS</a> attacks and it seems as though they don’t have a fully working solution in place to deal with that yet.</p>
+
+<p>Thank you to the github team for diligently working through the issues!  In the mean time we’ll need to <em>refresh</em> our browsers every once and awhile to load github hosted websites.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Enabling comments with Disqus]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/25/enabling-comments-with-disqus/"/>
+    <updated>2012-10-25T09:25:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/25/enabling-comments-with-disqus</id>
+    <content type="html"><![CDATA[<p>It appears the default <em>comments</em> option for <a href="http://www.octopress.org">Octopress</a> is <em>true</em> but you will notice that your Octopress blog does not actually have a comment section.</p>
+
+<p>This is because you need to create and configure a <strong><a href="http://disqus.com/">Disqus</a></strong> account first:</p>
+
+<ul>
+  <li>Register your webiste here: <a href="http://disqus.com/admin/register/">http://disqus.com/admin/register/</a></li>
+  <li>Retrieve your disqus <em>“shortname”</em></li>
+  <li>Add the shortname to _config.yml:</li>
+</ul>
+
+<p><code>ruby enable disqus
+# Disqus Comments
+disqus_short_name: unleashedweborg
+disqus_show_comment_count: true
+</code></p>
+
+<ul>
+  <li>You can see I also set discus_show_comment_count to true (which is optional)</li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dynamic DNS with FreeDNS]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns/"/>
+    <updated>2012-10-23T21:18:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/23/dynamic-dns-with-freedns</id>
+    <content type="html"><![CDATA[<p><a href="http://freedns.afraid.org/" title="Free DNS">Free DNS</a> offers free dynamic and static DNS hosting.  You can visit their website or read more about some uses of their service <a href="/blog/2012/10/22/freedns-is-awesome">here</a>.</p>
+
+<p>If you are hosting your website from a server that has a dynamic IP address you might wonder how you can map your domain name (specifically TLD) directly to your server.  Sure you can use <code>CNAME</code> records to point your subdomains to another DNS service like <a href="http://www.no-ip.com/">no-ip</a> but where is fun in that?  Also that doesn’t help your TLD (top-level domain) which needs to be set via an <code>A Record</code>.</p>
+
+<p><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github</a> says:</p>
+
+<blockquote>
+  <p>Be warned: you should not use a CNAME record with a TLD, it may cause issues with other services on the domain, like email.</p>
+</blockquote>
+
+<p>FreeDNS provides an API to update your <code>A Record</code> as your dynamic IP address changes.  They provide several scripts that work in conjunction with a unique “Authentication Token” that allow this to be possible.  These scripts are written for windows, linux, and even certain routers!  I think these <a href="http://freedns.afraid.org/scripts/freedns.clients.php">scripts</a> are only available once you have a login (it’s free)!</p>
+
+<p>I wanted to better understand the process and create something light-weight so I wrote my own tcl script to use:</p>
+
+<p>``` tcl updateIp
+#!/usr/local/bin/tclsh8.6</p>
+
+<h1 id="updateiptcl">updateIp.tcl</h1>
+<p># This is a simple script that will detect the server’s external IP address 
+# (as seen by the outside world) and update your domain’s A Record via FreeDNS
+# (freedns.afraid.org).  Of course this implies that you have changed your
+# domain to use freedns’s nameservers and have your domain configured there
+# (it’s free!) </p>
+
+<h1 id="this-script-should-be-run-as-part-of-a-cron-job-every-5-minutes">This script should be run as part of a cron job every ~5 minutes</h1>
+
+<h1 id="usage">Usage:</h1>
+<p># Check for updates and apply as necessary:
+# ./updateIp.tcl
+# Force an update
+# ./updateIp.tcl true</p>
+
+<h1 id="begin-user-globals-section-----">—–BEGIN USER GLOBALS SECTION—–</h1>
+<p># File in which to write logs (should use syslog to rotate)
+set g_logFile “/var/log/updateIp.log”</p>
+
+<h1 id="file-that-stores-the-current-ip-of-the-server">File that stores the current IP of the server</h1>
+<p># (will be maintained by this script)
+set g_currentIp “/usr/local/www/updateIp/currentIp.conf”</p>
+
+<h1 id="authentication-token-that-is-generated-and-obtained-from-freedns-for">Authentication token that is generated and obtained from FreeDNS for</h1>
+<p># your spefic domain
+# YOU MUST UPDATE THESE WITH YOUR OWN DOMAINS TOKENS!
+set g_authToken [list U2lSMUlBQUoz<strong>__</strong><em>x2 U2lSMUta2Vz</em><strong>__</strong>__x3] 
+#——END USER GLOBALS SECTION——#</p>
+
+<h1 id="you-shouldnt-need-to-change-anything-beyond-this-point-------">——YOU SHOULDN’T NEED TO CHANGE ANYTHING BEYOND THIS POINT——-</h1>
+
+<p>package require http</p>
+
+<h1 id="logs-msg-along-with-a-timestamp-to-glogfile">Logs “msg” along with a timestamp to g_logFile</h1>
+<p>proc logger {msg} \
+{
+    global g_logFile
+    set fp [open $g_logFile “WRONLY APPEND CREAT”]
+    puts $fp “[clock format [clock scan now]]: $msg”
+}</p>
+
+<h1 id="retrieves-the-external-ip-address-of-this-server-using-dyndns">Retrieves the external IP address of this server (using dyndns)</h1>
+<p>proc getExternalIp {} \
+{
+    set token [::http::geturl http://checkip.dyndns.org]
+    set data [::http::data $token]</p>
+
+<pre><code>regexp {Address: (\d+\.\d+\.\d+\.\d+)} $data -&gt; ipAddress
+
+return $ipAddress }
+</code></pre>
+
+<h1 id="retrieves-the-current-external-ip-address-that-this-server-is-aware-of">Retrieves the current external IP address that this server is aware of</h1>
+<p># (using the g_currentIp file)
+proc getCurrentIp {} \
+{
+    global g_currentIp</p>
+
+<pre><code>set fp [open $g_currentIp "RDWR CREAT"]
+set ip [lindex [split [read $fp] "\n"] 0]
+close $fp
+return $ip   }
+</code></pre>
+
+<h1 id="updates-freedns-to-your-new-external-ip--also-updates-gcurrentip-so-we">Updates FreeDNS to your new external IP.  Also updates g_currentIp so we</h1>
+<p># know when we need to update again<br />
+proc updateIp {ip} \
+{
+    global g_currentIp
+    global g_authToken</p>
+
+<pre><code>foreach part $g_authToken \
+{
+    set token [::http::geturl http://freedns.afraid.org/dynamic/update.php?$part]
+	logger [::http::data $token]
+}
+set fp [open $g_currentIp "WRONLY CREAT TRUNC"]
+puts $fp $ip
+close $fp }
+</code></pre>
+
+<h1 id="main-program">Main program</h1>
+
+<h1 id="get-the-current-known-ip-of-the-system-stored-in-gcurrentip">Get the current known IP of the system (stored in g_currentIp)</h1>
+<p>set currentIP [getCurrentIp]
+# Get the current external IP of the system (from dyndns)
+set externIP [getExternalIp]</p>
+
+<p>set force [lindex $argv 0]
+if {$force eq “”} \
+{
+    set force false
+}</p>
+
+<h1 id="if-our-ip-has-changed-or-if-we-are-forcing-then-update-it">If our IP has changed (or if we are forcing) then update it!</h1>
+<p>if {($currentIP ne $externIP) || $force} \
+{
+    logger “updating IP ($externIP) - force: $force”
+    updateIp $externIP
+} \
+else \
+{
+    logger “IP Address is up-to-date”
+}
+```</p>
+
+<p>Now you simply need to call <code>./updateIp.tcl</code> in a cron job and your domain will stay updated with your ever changing IP address!</p>
+
+<p>Eventually I will add this to github in case anyone would like to use or improve upon it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FreeDNS is awesome]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/22/freedns-is-awesome/"/>
+    <updated>2012-10-22T21:08:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/22/freedns-is-awesome</id>
+    <content type="html"><![CDATA[<p>Purchasing your own domain name is inexpensive and is a great way to setup a personal email address or website.</p>
+
+<p>You can use <a href="http://freedns.afraid.org/" title="Free DNS">Free DNS</a> to map your DNS to an appropriate mail server or web server.</p>
+
+<p>Here is an example that allows me to use “gmail” with a personal email address <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#104;&#101;&#119;&#108;&#101;&#115;&#115;&#064;&#117;&#110;&#108;&#101;&#097;&#115;&#104;&#101;&#100;&#045;&#119;&#101;&#098;&#046;&#111;&#114;&#103;">&#115;&#104;&#101;&#119;&#108;&#101;&#115;&#115;&#064;&#117;&#110;&#108;&#101;&#097;&#115;&#104;&#101;&#100;&#045;&#119;&#101;&#098;&#046;&#111;&#114;&#103;</a> using <code>MX records</code>.  </p>
+
+<pre><code>unleashed-web.org (G)	MX	10:alt1.aspmx.l.google.com
+unleashed-web.org (G)	MX	10:alt2.aspmx.l.google.com
+unleashed-web.org (G)	MX	10:aspmx.l.google.com
+</code></pre>
+
+<p>In order for this to work you also need to configure <a href="http://support.google.com/a/bin/answer.py?hl=en&amp;answer=57919">Google Apps</a> to enable your email service.  This service is free for personal use.</p>
+
+<p>It also points <a href="http://www.unleashed-web.org">http://www.unleashed-web.org</a> to where this website is hosted (github):</p>
+
+<pre><code>www.unleashed-web.org (G)	CNAME	shewless.github.com
+</code></pre>
+
+<p>Lastly if you want your TLD (top level domain) to work you must also add an “A record” that will point to a specific github IP address:</p>
+
+<pre><code>unleashed-web.org (G)	A	204.232.175.78
+</code></pre>
+
+<p>See <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">This Github help article</a> for more information.</p>
+
+<p>This website is powered by <a href="http://www.octopress.org">Octopress</a> which can be freely deployed on <a href="http://www.github.com">Github</a>.  Please keep in mind that octopress defines itself as “A blogging framework for hackers” so it all depends on how much time you want to invest.  If you’re looking for something simpler there are many other way to create and host websites and blogs (most of which will cost a bit of money). </p>
+
+<p>The entire cost for your own email address and website is only the cost of the domain name itself (usually approx $15/year)!</p>
+]]></content>
+  </entry>
+  
+</feed>

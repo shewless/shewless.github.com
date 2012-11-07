@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: VIM | unleashed-web.org]]></title>
+  <link href="http://www.unleashed-web.org/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://www.unleashed-web.org/"/>
+  <updated>2012-11-07T11:27:05-05:00</updated>
+  <id>http://www.unleashed-web.org/</id>
+  <author>
+    <name><![CDATA[shewless]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Enable Vim Spell Check For Specific File Types]]></title>
+    <link href="http://www.unleashed-web.org/blog/2012/10/31/enable-vim-spell-check-for-specific-file-types/"/>
+    <updated>2012-10-31T11:02:00-04:00</updated>
+    <id>http://www.unleashed-web.org/blog/2012/10/31/enable-vim-spell-check-for-specific-file-types</id>
+    <content type="html"><![CDATA[<p>You can enable spell check in vim, gvim, or macvim by entering <em>command mode<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></em> and typing <code>:set spell</code>.</p>
+
+<p>To make this permanent for every time you open a file in vim you can add this line to your <code>~/.vimrc</code><sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup> file:</p>
+
+<p><code>vim
+set spell
+</code></p>
+
+<p>If you use vim for programming you might not want it to spell check every file.  If, for example, you use vim to edit your markdown files for your <a href="http://octopress.org">Octopress Blog</a> AND you also use vim to edit your ruby project you will want to use the autocmd instead:</p>
+
+<p><code>vim
+autocmd FileType Markdown setlocal spell
+</code></p>
+
+<p>This will only enable spell check if you open a file with type “Markdown”</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>You can enter <em>command mode</em> by pressing the <code>ESC</code> key.<a href="#fnref:1" rel="reference">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><code>~</code> represents the current users home directory.  Similar to the <code>$HOME</code> environment variable.<a href="#fnref:2" rel="reference">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+</feed>
