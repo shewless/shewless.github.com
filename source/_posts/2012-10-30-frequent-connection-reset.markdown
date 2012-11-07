@@ -6,6 +6,10 @@ comments: true
 categories: WEB
 ---
 
+**UPDATE:** As of *7-Nov-2012* (and likely before) this connection reset problem does not appear to be occurring anymore.  Thank you [Github](http://github.com)!
+
+---
+
 Uhoh.. every once and a while I get this error when trying to access my site: <http://www.unleashed-web.org>.  When I hit "refresh" the problem vanishes (for a short time).
 
 {% img center /images/2012-10-30-frequent-connection-reset/problemLoading.png %}
